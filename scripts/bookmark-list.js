@@ -27,8 +27,13 @@ const bookmarkList = (function (){
   }
 
   // render the page
-  function render() {
+  function render(filteredList = null) {
     let bookmarks = store.bookmarks;
+
+    if (filteredList !== null) {
+      bookmarks = filteredList;
+      console.log(filteredList);
+    }
     console.log(store);
     // render bookmark list in the DOM
     console.log('`render` ran');
@@ -48,6 +53,16 @@ const bookmarkList = (function (){
     }
   });
   
+  // adding Toggle
+
+  function addingBookmark() {
+    $('#addingButton').click(function(event){
+      event.preventDefault();
+      console.log('adding button clicked!');
+      $('.inputGroup').slideToggle(1000, 'linear');
+    });
+  }
+
   // handleNewBookmarkSubmit
 
   function handleNewBookmarkSubmit() {
@@ -90,9 +105,24 @@ const bookmarkList = (function (){
     });
   }
 
+  // handle filter by stars
+
+  function handleFilterByStars() {
+    $('#filterValueButton').on('click', event => {
+      event.preventDefault();
+      console.log('filter button clicked!');
+      const starNumber = $('#pickRatings').val();
+      console.log(starNumber);
+      const filteredList = store.bookmarks.filter((item) => item.rating >= starNumber);
+      render(filteredList);
+    });
+  }
+
   function bindEventListeners() {
     handleNewBookmarkSubmit();
     handleDeleteBookmarkClicked();
+    handleFilterByStars();
+    addingBookmark();
   }
 
   return {
