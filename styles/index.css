@@ -102,7 +102,7 @@ body {
 li {
     height: auto;
     padding: 20px;
-    border: 1px solid #000;
+    border: 1px solid #919191;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
@@ -120,12 +120,6 @@ ul {
     width: 100%;
     padding: 15px;
     text-align: left;
-}
-
-.inputGroup {
-    margin-top: 15px;
-    border: 1px solid #000;
-    display: inline-block;
 }
 
 .alert {
@@ -157,33 +151,33 @@ ul {
     content: '\f005';
     font-size: 22px;
     font-family: 'FontAwesome';
-    color: #f1f492;
+    color: #fcd245;
 }
 
 .stars2::before {
     content: '\f005 \f005';
     font-size: 22px;
     font-family: 'FontAwesome';
-    color: #f1f492;
+    color: #fcd245;
 }
 
 .stars3::before {
     content: '★★★';
     font-size: 22px;
     font-family: 'FontAwesome';
-    color: #f1f492;
+    color: #fcd245;
 }
 
 .stars4::before {
     content: '\f005 \f005 \f005 \f005';
     font-family: 'FontAwesome';
-    color: #f1f492;
+    color: #fcd245;
 }
 
 .stars5::before {
     content: '\f005 \f005 \f005 \f005 \f005';
     font-family: 'FontAwesome';
-    color: #f1f492;
+    color: #fcd245;
 }
 
 .formButtons {
@@ -194,11 +188,60 @@ ul {
 }
 
 button {
-    background-color: #f0f0f0;
-    border: 0px solid #000;
-    font-family: 'Raleway';
+    border-bottom: 1px solid #fcd245;
+    font-family: 'Rubik';
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 5px;
+    font-size: 9px;
+    /* background-image: url(http://i.imgur.com/Jhddjar.png); */
+}
+
+.starForm {
+    margin-top: 25px;
+}
+
+.bookDesc {
+    width: 100%;
+    text-align: justify!important;
+    padding: 15px;
+    font-size: 11px;
+}
+
+.bookUrl a {
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 10px;
+    font-weight: 400;
+    text-transform: uppercase;
+    border: 1px solid #fcd245;
+    color: #000;
+    padding: 5px;
+}
+
+.bookUrl::first-letter {
+    color: #fcd245;
+    font-weight: 400;
+}
+
+.inputGroup {
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #919191;
+    display: inline-block;
+    border-radius: 15px;
+    font-family: 'Raleway';
+    font-size: 12px;
+    text-align: justify;
+    line-height: 140%;
+}
+
+.addingButton {
+    margin-top: 15px;
+}
+
+input {
+    font-family: 'Raleway';
+    font-size: 9px;
 }

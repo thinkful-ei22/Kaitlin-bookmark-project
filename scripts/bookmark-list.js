@@ -173,7 +173,8 @@ const bookmarkList = (function (){
   function expandBookmark(bookmark) {
     if (bookmark.expanded) {
       return `
-      <div class="bookmark-details js-bookmark-details" id="bookmark-details">${bookmark.desc}, <a href="${bookmark.url}">visit the site!</a></div>
+      <div class="bookmark-details js-bookmark-details bookDesc" id="bookmark-details">${bookmark.desc}, </div>
+      <div class="bookUrl"><a href="${bookmark.url}">visit the site!</a></div>
       `;
     } else {
       return '';

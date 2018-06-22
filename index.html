@@ -6,7 +6,7 @@
     <title>Bookmarks Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/index.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400|Raleway:200,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400|Raleway:200,400|Rubik:200,400" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
 </head>
 <body>
@@ -18,7 +18,7 @@
         </header>
 
         <main role = "main" class="">
-        <form id="filterByStars">
+        <form id="filterByStars" class="starForm">
             <select name ="pickRatings" aria-label="choose-star-rating" id="pickRatings">
                 <option value="1">1 star</option>
                 <option value="2">2 star</option>
@@ -27,10 +27,10 @@
                 <option value="5">5 star</option>
             </select>
             <button type="submit" id="filterValueButton">Click Me!</button>
-            </form>
+        </form>
 
             <form id="showAddingButton">
-                <button type="click" id="addingButton">Add a New Bookmark!</button>
+                    <button type="click" id="addingButton" class="addingButton">Add a New Bookmark!</button>
             </form>
 
         <div class="inputGroup col6 center">
