@@ -9,13 +9,21 @@ const bookmarkList = (function (){
   // generate a bookmark element (html) to the page
   function generateBookmarkItem(bookmark) {
     return `
-    <li class="js-bookmark-element" data-bookmark-id="${bookmark.id}">
-        <div class="miniBox">${bookmark.title}, 
-        ${bookmark.rating}
+    <li class="js-bookmark-element col-3" data-bookmark-id="${bookmark.id}">
+       
+        <div class="miniBox">
+        
+        <div class="title">${bookmark.title}  <span class="bookmarkRating stars${bookmark.rating}"></span></div>
+        
+        
         </div>
-        <div>${expandBookmark(bookmark)}</div>
-        <button type="click" class="bookmark-delete js-bookmark-delete">Delete</button>
-        <button type="click" class="bookmark-expand js-bookmark-expand">Details</button>
+
+        ${expandBookmark(bookmark)}
+        
+        <div class="formButtons">
+          <button type="click" class="bookmark-delete js-bookmark-delete">Delete</button>
+          <button type="click" class="bookmark-expand js-bookmark-expand">Details</button>
+        </div>
     </li>`;
   }
 
@@ -67,18 +75,18 @@ const bookmarkList = (function (){
     $('.error').remove;
 
     if (bookmark.title === '') {
-      $('#bookmark-name').after('This field is required');
+      $('#bookmark-name').after('<span class="alert">This field is required!</alert>');
       // throw new TypeError('Title is required');
       console.log('Why is this not working');
     } 
     if (bookmark.url.length < 5) {
-      console.log('URL must be longer than 5 characters!');
+      $('#bookmark-name').after('<span class="alert">URL must be longer than 5 characters!</alert>');
     }
     if (!bookmark.url.includes('http')) {
-      console.log('URL must include http/https!');
+      $('#bookmark-url').after('<span class="alert">URL must include http/https!</alert>');
     }
     if (bookmark.url === '') {
-      console.log('URL must be entered!');
+      $('#bookmark-url').after('<span class="alert">URL must be entered!</alert>');
     }
     return bookmark;
   };

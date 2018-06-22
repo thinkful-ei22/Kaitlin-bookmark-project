@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bookmarks Application</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="styles/index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400|Raleway:200,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
 </head>
 <body>
-    <div class="container">
-        <h1>My Bookmarks</h1>
+    <div class="container row">
+        <nav role="navigation"></nav>
+       
+        <header role="banner">
+            My Bookmarks
+        </header>
+
+        <main role = "main" class="">
         <form id="filterByStars">
-            <select name ="pickRatings" id="pickRatings">
+            <select name ="pickRatings" aria-label="choose-star-rating" id="pickRatings">
                 <option value="1">1 star</option>
                 <option value="2">2 star</option>
                 <option value="3">3 star</option>
@@ -25,7 +33,7 @@
                 <button type="click" id="addingButton">Add a New Bookmark!</button>
             </form>
 
-            <div class="inputGroup">
+        <div class="inputGroup col6 center">
                 <form id="js-bookmark-list-form">
                     <label for="bookmark-name">Bookmark Name:</label>
                     <input type="text" id="bookmark-name" name="title" placeholder="Best Overwatch Strategies"  /><br>
@@ -33,17 +41,17 @@
                     <input type="text" id="bookmark-url" name="url" placeholder="http://www..."  /><br>
                     <label for="bookmark-desc">Description:</label><br>
                     <textarea id="bookmark-desc" name="desc" cols="30" rows="3" placeholder="Write your description here!"></textarea><br>
-                    <label for="starRating">Your Rating:</label>
+                    <label for="starRating" aria-label="choose-stars">Your Rating:</label>
                     
-                        <span><input type="radio" id="oneStar" name="rating" value="1" checked="checked">
+                        <span><input type="radio" id="oneStar" aria-label="rating" name="rating" value="1" checked="checked">
                         <label for="oneStar">1</label>
-                        <input type="radio" id="twoStar" name="rating" value="2">
+                        <input type="radio" id="twoStar" aria-label="rating" name="rating" value="2">
                         <label for="twoStar">2</label>
-                        <input type="radio" id="threeStar" name="rating" value="3">
+                        <input type="radio" id="threeStar" aria-label="rating" name="rating" value="3">
                         <label for="threeStar">3</label>
-                        <input type="radio" id="fourStar" name="rating" value="4">
+                        <input type="radio" id="fourStar" aria-label="rating" name="rating" value="4">
                         <label for="fourStar">4</label>
-                        <input type="radio" id="fiveStar" name="rating" value="5">
+                        <input type="radio" id="fiveStar" aria-label="rating" name="rating" value="5">
                         <label for="fiveStar">5</label></span>
                                 
                 
@@ -51,9 +59,9 @@
                 </form>
         </div>
 
-        <ul class="bookmark-list js-bookmark-list">
+        </div><ul class="bookmark-list js-bookmark-list col5 center">
                     
-        </ul>
+        </ul></main>
     </div>
     
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
