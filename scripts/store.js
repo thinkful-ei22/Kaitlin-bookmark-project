@@ -29,10 +29,14 @@ const store = (function () {
 
   const expandToggle = function (id) {
     // this.bookmarks.this.bookmarks.
-    this.bookmarks.changeState('checked','!checked');
-    console.log(this.bookmarks);
-    this.bookmarks.expanded=!this.bookmarks.expanded;  
+    
   };
+
+  // function validateInputs() {
+  //   $('#js-bookmark-list-form').click( function() {
+  //     console.log('forum submit');
+  //   });
+  // }
 
   return {
     bookmarks: [],
@@ -42,6 +46,7 @@ const store = (function () {
     addBookmark,
     findAndDeleteBookmark,
     filterThroughBookmarks,
-    expandToggle
+    expandToggle,
+    // validateInputs
   };
 }());

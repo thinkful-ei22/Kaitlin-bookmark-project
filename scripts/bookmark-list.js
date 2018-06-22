@@ -74,11 +74,12 @@ const bookmarkList = (function (){
       };
       console.log(dataObject);
       $('.js-shopping-list-entry').val(''); // clear the inputs!!!! CLEAR THEM!
-      api.createBookmark(dataObject, function() {
+      api.createBookmark(dataObject, function(bookmark) {
         console.log('api response 2');
-        store.addBookmark(dataObject);
+        store.addBookmark(bookmark);
         render();
-      });
+      }, () => { alert('must enter fields correctly!');}
+      );
     });
   }
 
@@ -143,7 +144,18 @@ const bookmarkList = (function (){
     }
   }
 
+
+  // if/else -> error callbacks
+
+  function handleValidateInputs() {
+    $('#js-bookmark-list-form').submit( function(event) {
+      event.preventDefault();
+      console.log('forum submit');
+    });
+  }
+
   function bindEventListeners() {
+    handleValidateInputs();
     handleNewBookmarkSubmit();
     handleDeleteBookmarkClicked();
     handleFilterByStars();

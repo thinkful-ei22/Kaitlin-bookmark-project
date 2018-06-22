@@ -28,9 +28,9 @@
             <div class="inputGroup">
                 <form id="js-bookmark-list-form">
                     <label for="bookmark-name">Bookmark Name:</label>
-                    <input type="text" id="bookmark-name" name="title" placeholder="Best Overwatch Strategies" required /><br>
+                    <input type="text" id="bookmark-name" name="title" placeholder="Best Overwatch Strategies"  /><br>
                     <label for="bookmark-url">Bookmark URL:</label>
-                    <input type="url" id="bookmark-url" name="url" placeholder="http://www..." required /><br>
+                    <input type="url" id="bookmark-url" name="url" placeholder="http://www..."  /><br>
                     <label for="bookmark-desc">Description:</label><br>
                     <textarea id="bookmark-desc" name="desc" cols="30" rows="3" placeholder="Write your description here!"></textarea><br>
                     <label for="starRating">Your Rating:</label>
@@ -47,22 +47,11 @@
                         <label for="fiveStar">5</label></span>
                                 
                 
-                    <button type="submit">Submit New Bookmark</button>
+                    <button type="submit" data-id="js-forum-submit">Submit New Bookmark</button>
                 </form>
         </div>
 
         <ul class="bookmark-list js-bookmark-list">
-
-
-                <!-- <li>
-                        <div class="miniBox">Name 
-                            star rating
-                        </div>
-                        description, url
-        
-                        <button type="click">Delete</button>
-                        <button type="click">Details</button>
-                    </li> -->
                     
         </ul>
     </div>

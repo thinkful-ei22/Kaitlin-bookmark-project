@@ -14,14 +14,14 @@ const api = (function() {
   // create a bookmark
 
 
-  const createBookmark = function (data, callback) {
+  const createBookmark = function (data, callback, error) {
     $.ajax({
       url: BASE_URL,
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: callback,
-    //   error
+      error,
     });
   };
 
