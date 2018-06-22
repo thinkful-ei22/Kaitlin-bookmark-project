@@ -8,9 +8,10 @@ const store = (function () {
 
   // add bookmark here
   const addBookmark = function(bookmark) {
-    let bookmarks2 = Object.assign({expanded: false}, bookmark);
-    this.bookmarks.push(bookmarks2);
+    bookmark.expanded = false;
+    this.bookmarks.push(bookmark);
   };
+
   // delete bookmark here
 
   const findAndDeleteBookmark = function(id) {
@@ -26,6 +27,13 @@ const store = (function () {
 
   // toggle adding bookmark
 
+  const expandToggle = function (id) {
+    // this.bookmarks.this.bookmarks.
+    this.bookmarks.changeState('checked','!checked');
+    console.log(this.bookmarks);
+    this.bookmarks.expanded=!this.bookmarks.expanded;  
+  };
+
   return {
     bookmarks: [],
     inputToggle: false,
@@ -33,6 +41,7 @@ const store = (function () {
 
     addBookmark,
     findAndDeleteBookmark,
-    filterThroughBookmarks
+    filterThroughBookmarks,
+    expandToggle
   };
 }());

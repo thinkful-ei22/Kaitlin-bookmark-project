@@ -13,8 +13,7 @@ const bookmarkList = (function (){
         <div class="miniBox">${bookmark.title}, 
         ${bookmark.rating}
         </div>
-        ${bookmark.desc}, <a href="${bookmark.url}">visit the site!</a>
-
+        <div>${expandBookmark(bookmark)}</div>
         <button type="click" class="bookmark-delete js-bookmark-delete">Delete</button>
         <button type="click" class="bookmark-expand js-bookmark-expand">Details</button>
     </li>`;
@@ -34,7 +33,6 @@ const bookmarkList = (function (){
       bookmarks = filteredList;
       console.log(filteredList);
     }
-    console.log(store);
     // render bookmark list in the DOM
     console.log('`render` ran');
     const bookmarkListString = generateBookmarkItemString(bookmarks);
@@ -118,23 +116,31 @@ const bookmarkList = (function (){
     });
   }
 
-  function expandToggle(id) {
-    let bookmark = this.findById(id);
-    bookmark.expanded=!bookmark.expanded;  
-  }
+  
 
   function handleExpand() {
     $('ul').on('click', '.js-bookmark-expand', event => {
       event.preventDefault();
-      const bookId = getBookmarkIdFromElement(event.currentTarget);
-      // console.log(bookId);
+      const thisBook = getBookmarkIdFromElement(event.target);
+      console.log(thisBook);
 
-      // toggle expand in bookmark
-      expandToggle(bookId);
-
-      console.log();
+      store.bookmarks.map(bookmark => {
+        if (bookmark.id === thisBook) {
+          bookmark.expanded = !bookmark.expanded;
+        } 
+      });
       render();
     });
+  }
+
+  function expandBookmark(bookmark) {
+    if (bookmark.expanded) {
+      return `
+      <div class="bookmark-details js-bookmark-details" id="bookmark-details">${bookmark.desc}, <a href="${bookmark.url}">visit the site!</a></div>
+      `;
+    } else {
+      return '';
+    }
   }
 
   function bindEventListeners() {
