@@ -16,7 +16,7 @@ const bookmarkList = (function (){
         ${bookmark.desc}, <a href="${bookmark.url}">visit the site!</a>
 
         <button type="click" class="bookmark-delete js-bookmark-delete">Delete</button>
-        <button type="click">Details</button>
+        <button type="click" class="bookmark-expand js-bookmark-expand">Details</button>
     </li>`;
   }
 
@@ -118,11 +118,31 @@ const bookmarkList = (function (){
     });
   }
 
+  function expandToggle(id) {
+    let bookmark = this.findById(id);
+    bookmark.expanded=!bookmark.expanded;  
+  }
+
+  function handleExpand() {
+    $('ul').on('click', '.js-bookmark-expand', event => {
+      event.preventDefault();
+      const bookId = getBookmarkIdFromElement(event.currentTarget);
+      // console.log(bookId);
+
+      // toggle expand in bookmark
+      expandToggle(bookId);
+
+      console.log();
+      render();
+    });
+  }
+
   function bindEventListeners() {
     handleNewBookmarkSubmit();
     handleDeleteBookmarkClicked();
     handleFilterByStars();
     addingBookmark();
+    handleExpand();
   }
 
   return {

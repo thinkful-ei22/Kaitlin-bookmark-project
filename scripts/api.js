@@ -57,12 +57,10 @@ const api = (function() {
 
 
 
-
   return {
     getBookmarks,
     createBookmark,
     patchBookmark,
     deleteBookmark
-
   };
 }());

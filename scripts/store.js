@@ -8,7 +8,8 @@ const store = (function () {
 
   // add bookmark here
   const addBookmark = function(bookmark) {
-    this.bookmarks.push(bookmark);
+    let bookmarks2 = Object.assign({expanded: false}, bookmark);
+    this.bookmarks.push(bookmarks2);
   };
   // delete bookmark here
 
@@ -18,6 +19,11 @@ const store = (function () {
 
   // search by min rating
 
+  const filterThroughBookmarks = function(num) {
+    store.bookmarks.filter((item) => item.rating >= num);
+  };
+
+
   // toggle adding bookmark
 
   return {
@@ -26,6 +32,7 @@ const store = (function () {
     filter: 1,
 
     addBookmark,
-    findAndDeleteBookmark
+    findAndDeleteBookmark,
+    filterThroughBookmarks
   };
 }());
