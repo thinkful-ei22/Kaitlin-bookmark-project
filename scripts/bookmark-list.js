@@ -61,6 +61,28 @@ const bookmarkList = (function (){
     });
   }
 
+  // validate input
+
+  const validateBookmark = function(bookmark) {
+    $('.error').remove;
+
+    if (bookmark.title === '') {
+      $('#bookmark-name').after('This field is required');
+      // throw new TypeError('Title is required');
+      console.log('Why is this not working');
+    } 
+    if (bookmark.url.length < 5) {
+      console.log('URL must be longer than 5 characters!');
+    }
+    if (!bookmark.url.includes('http')) {
+      console.log('URL must include http/https!');
+    }
+    if (bookmark.url === '') {
+      console.log('URL must be entered!');
+    }
+    return bookmark;
+  };
+
   // handleNewBookmarkSubmit
 
   function handleNewBookmarkSubmit() {
@@ -74,12 +96,18 @@ const bookmarkList = (function (){
       };
       console.log(dataObject);
       $('.js-shopping-list-entry').val(''); // clear the inputs!!!! CLEAR THEM!
-      api.createBookmark(dataObject, function(bookmark) {
+      
+      // validate
+      const newDataObj = validateBookmark(dataObject);
+      
+      api.createBookmark(newDataObj, function(bookmark) {
         console.log('api response 2');
         store.addBookmark(bookmark);
         render();
-      }, () => { alert('must enter fields correctly!');}
-      );
+      }, (err) => {
+        $('#js-bookmark-name').after(`${err.responseJSON.message}`);
+        console.log(err);
+      });
     });
   }
 
